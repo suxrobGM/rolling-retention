@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { OidcConfig } from '../authentication/OidcConfig';
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, 
   Category, Tooltip, DataLabel, BarSeries, DateTime } from '@syncfusion/ej2-react-charts';
 
@@ -36,7 +37,8 @@ export class BarChart extends Component {
     let authUser = JSON.parse(localStorage.getItem("user"));
     
     // get last 7 days user retentions
-    fetch("https://localhost:5001/api/users/retentions/7", {
+    
+    fetch(`https://${OidcConfig.apiHost}/api/users/retentions/7`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`
       }
@@ -55,10 +57,6 @@ export class BarChart extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   this.getUserRetentions();
-  // }
-
   render () {
     return (
       <div>
@@ -69,7 +67,7 @@ export class BarChart extends Component {
             </SeriesDirective>
           </SeriesCollectionDirective>
         </ChartComponent>
-        <button className="btn btn-primary" onClick={this.getUserRetentions}>Calculate</button>
+        <button className="btn btn-primary mt-2" onClick={this.getUserRetentions}>Calculate</button>
       </div>
     );
   }

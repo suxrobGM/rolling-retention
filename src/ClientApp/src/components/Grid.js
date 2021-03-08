@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { OidcConfig } from '../authentication/OidcConfig';
 import { ColumnDirective, ColumnsDirective, GridComponent, 
   Inject, Page, Sort, Edit, Toolbar } from '@syncfusion/ej2-react-grids';
 
@@ -27,7 +28,7 @@ export class Grid extends Component {
   getUsers = () => {
     let authUser = JSON.parse(localStorage.getItem("user"));
     
-    fetch("https://localhost:5001/api/users", {
+    fetch(`https://${OidcConfig.apiHost}/api/users`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`
       }
@@ -43,7 +44,7 @@ export class Grid extends Component {
   saveUserData = (user) => {
     let authUser = JSON.parse(localStorage.getItem("user"));
 
-    fetch(`https://localhost:5001/api/users/${user.id}`, {
+    fetch(`https://${OidcConfig.apiHost}/api/users/${user.id}`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`,
         "Content-Type": "application/json"

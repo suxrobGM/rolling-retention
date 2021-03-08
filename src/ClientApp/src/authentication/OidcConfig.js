@@ -8,10 +8,24 @@ export const OidcConfig = {
         window.location.href = "https://localhost:6001/Identity/Account/Logout";
     },
 
-    authority: "https://localhost:6001",
     clientId: "spa_client",
     clientSecret: "super_secret_string",
     responseType: "code",
-    redirectUri: "http://localhost:3000",
     scope: "app.api.client openid profile offline_access",
+
+    //apiHost: "https://api.suxrobgm.net",
+    //authority: "https://id.suxrobgm.net",
+    //redirectUri: "https://u1002275.plsk.regruhosting.ru",
+
+    apiHost: process.env.NODE_ENV === "development"
+        ? "http://localhost:5001"
+        : "https://api.suxrobgm.net",
+
+    authority: process.env.NODE_ENV === "development"
+        ? "http://localhost:6001"
+        : "https://id.suxrobgm.net",
+
+    redirectUri: process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://u1002275.plsk.regruhosting.ru"
 }

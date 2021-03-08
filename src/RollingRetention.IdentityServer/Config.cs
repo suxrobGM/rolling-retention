@@ -53,12 +53,15 @@ namespace RollingRetention.IdentityServer
                         "offline_access",
                     },
                     RedirectUris = {
-                        "http://localhost:3000/sign-oidc",
-                        "http://localhost:3000"
+                        "http://localhost:3000",
+                        "http://localhost:3000/signin-oidc",
+                        "https://u1002275.plsk.regruhosting.ru",
+                        "https://u1002275.plsk.regruhosting.ru/signin-oidc"
                     },
                     PostLogoutRedirectUris = {
+                        "http://localhost:3000",
                         "http://localhost:3000/signout-oidc",
-                        "http://localhost:3000"
+                        "https://u1002275.plsk.regruhosting.ru/signout-oidc"
                     }
                 }
             };
