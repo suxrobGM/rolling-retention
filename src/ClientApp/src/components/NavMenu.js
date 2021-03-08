@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'react-bootstrap';
+import { Container, Navbar, NavbarBrand, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Login } from './Login'
 

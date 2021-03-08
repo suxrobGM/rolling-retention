@@ -13,17 +13,16 @@ export const OidcConfig = {
     responseType: "code",
     scope: "app.api.client openid profile offline_access",
 
-    //apiHost: "https://api.suxrobgm.net",
-    //authority: "https://id.suxrobgm.net",
-    //redirectUri: "https://u1002275.plsk.regruhosting.ru",
+    apiHost: "https://api.suxrobgm.net",
+    authority: "https://id.suxrobgm.net",
 
-    apiHost: process.env.NODE_ENV === "development"
-        ? "http://localhost:5001"
-        : "https://api.suxrobgm.net",
+    // apiHost: process.env.NODE_ENV === "development"
+    //     ? "http://localhost:5001"
+    //     : "https://api.suxrobgm.net",
 
-    authority: process.env.NODE_ENV === "development"
-        ? "http://localhost:6001"
-        : "https://id.suxrobgm.net",
+    // authority: process.env.NODE_ENV === "development"
+    //     ? "http://localhost:6001"
+    //     : "https://id.suxrobgm.net",
 
     redirectUri: process.env.NODE_ENV === "development"
         ? "http://localhost:3000"

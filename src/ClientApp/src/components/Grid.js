@@ -28,7 +28,7 @@ export class Grid extends Component {
   getUsers = () => {
     let authUser = JSON.parse(localStorage.getItem("user"));
     
-    fetch(`https://${OidcConfig.apiHost}/api/users`, {
+    fetch(`${OidcConfig.apiHost}/api/users`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`
       }
@@ -44,7 +44,7 @@ export class Grid extends Component {
   saveUserData = (user) => {
     let authUser = JSON.parse(localStorage.getItem("user"));
 
-    fetch(`https://${OidcConfig.apiHost}/api/users/${user.id}`, {
+    fetch(`${OidcConfig.apiHost}/api/users/${user.id}`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`,
         "Content-Type": "application/json"

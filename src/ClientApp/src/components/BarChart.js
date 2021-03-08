@@ -37,8 +37,7 @@ export class BarChart extends Component {
     let authUser = JSON.parse(localStorage.getItem("user"));
     
     // get last 7 days user retentions
-    
-    fetch(`https://${OidcConfig.apiHost}/api/users/retentions/7`, {
+    fetch(`${OidcConfig.apiHost}/api/users/retentions/7`, {
       headers: {
         "Authorization": `Bearer ${authUser.access_token}`
       }
